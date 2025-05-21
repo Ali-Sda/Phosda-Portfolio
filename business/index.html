@@ -1,0 +1,359 @@
+<!-- khmer -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phosda Book Library</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/portfolio/img/stars.png" type="image/png" />
+</head>
+<body class="bg-black text-white font-sans min-h-screen p-6">
+      <!-- Canvas Background -->
+  <canvas id="tech-bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+  <header class="text-center mb-10">
+    <!-- Language Toggle Button -->
+<div class="flex justify-end items-center mb-4 ">
+ <button onclick="window.location.href='/portfolio/kh/index.html'" 
+        class="text-sm px-3 py-1 rounded transition ml-2">
+  <img src="https://flagcdn.com/w40/kh.png" alt="Khmer" class="w-5 h-4 inline-block">
+</button>
+
+</div>
+
+    <h1 class="text-3xl sm:text-3xl py-4 font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent ">
+        
+        My Library </h1>
+  <p id="subheading" class="text-gray-400">The book I wrote</p>
+
+    
+  </header>
+
+     <!-- Back Button -->
+<a href="/portfolio/index.html"
+   class="absolute top-4 left-4 flex items-center pt-2 text-gray-300 text-sm
+          transition-colors duration-300
+          hover:text-pink-500 group">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       class="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-translate-x-0.5
+              text-gray-300 group-hover:text-purple-500" 
+       fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+          d="M17 19l-7-7 7-7M11 19l-7-7 7-7" />
+  </svg>
+  Back
+</a>
+
+ <div class="overflow-x-auto mb-6 px-3">
+    <table class="w-full max-w-6xl mx-auto text-sm sm:text-base border border-gray-700 rounded-lg overflow-hidden shadow-lg">
+      <thead class>
+        <tr>
+          <th class="px-4 py-3 border-b border-gray-700 text-left">Cover</th>
+          <th class="px-4 py-3 border-b border-gray-700 text-left">Title</th>
+          <th class="px-4 py-3 border-b border-gray-700 text-left">Author</th>
+          <th class="px-4 py-3 border-b border-gray-700 text-left">Year</th>
+        </tr>
+      </thead>
+      <tbody id="bookTable" class="divide-y divide-gray-800">
+        <tr data-id="1" class="cursor-pointer  transition">
+          <td class="p-3"><img src="/portfolio/kh/img/7 year old.png" alt="The Great Gatsby" class="w-16 h-24 rounded object-cover" /></td>
+          <td class="p-3">Start-End</td>
+          <td class="p-3"> Panha Phosda</td>
+          <td class="p-3">2025</td>
+        </tr>
+        <tr data-id="2" class="cursor-pointer  transition">
+          <td class="p-3"><img src="/portfolio/kh/img/2.png" alt="1984" class="w-16 h-24 rounded object-cover" /></td>
+          <td class="p-3">Options in the Misty Forest</td>
+          <td class="p-3">Panha Phosda</td>
+          <td class="p-3">2024</td>
+        </tr>
+        <tr data-id="3" class="cursor-pointer  transition">
+          <td class="p-3"><img src="/portfolio/kh/img/3.png" alt="To Kill a Mockingbird" class="w-16 h-24 rounded object-cover" /></td>
+          <td class="p-3">Us When? </td>
+          <td class="p-3">Panha Phosda</td>
+          <td class="p-3">2024</td>
+        </tr>
+        <!-- <tr data-id="4" class="cursor-pointer  transition">
+          <td class="p-3"><img src="#" alt="Pride and Prejudice" class="w-16 h-24 rounded object-cover" /></td>
+          <td class="p-3">Pride and Prejudice</td>
+          <td class="p-3">Jane Austen</td>
+          <td class="p-3">1813</td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Book Detail Section -->
+  
+<div id="bookDetail" class="hidden  border border-gray-700 p-6 rounded-xl max-w-4xl mx-auto shadow-lg">
+  <div class="flex flex-col sm:flex-row gap-6 items-center">
+    <!-- Book Cover Image -->
+    <img id="bookCover" src="" alt="Book Cover" class="w-32 h-48 object-cover rounded shadow-md" />
+
+    <!-- Book Info -->
+    <div>
+      <h2 id="bookTitle" class="text-2xl font-semibold mb-2 text-"></h2>
+      <p id="bookAuthor" class="mb-1 text-gray-300"></p>
+      <p id="bookYear" class="mb-1 text-gray-400"></p>
+     <p id="bookDescription" class="mt-3 text-white leading-relaxed"></p>
+    <button id="toggleDescription" class="mt-2 text-sm text-gray-400 hover:underline focus:outline-none hidden">មើលច្រើនទៀត</button>
+
+
+    </div>
+    
+  </div>
+  
+</div>
+
+
+
+
+ 
+<div>
+<div class=" py-2 px-2">
+  <a href="https://t.me/Phosda8" target="_blank">
+    <button class="border border-purple-900 px-1 py-1 rounded-md hover:bg-gray-900 hover:text-white transition-colors duration-300 ease-in-out">
+  Read More
+    </button>
+  </a>
+  
+</div>
+
+<div>
+
+</div>
+
+
+</div>
+
+<!-- Footer -->
+    <footer class="text-center text-sm mt-10 text-gray-400 ">
+      &copy; Panha-Phosda Portfolio. All rights reserved.
+    </footer>
+
+
+<!-- Image Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
+  <div class="relative">
+    <img id="modalImage" src="" alt="Book Cover" class="max-w-full max-h-[90vh] rounded-lg shadow-xl" />
+    <button onclick="closeModal()" class="absolute top-2 right-2 text-white text-3xl">&times;</button>
+  </div>
+</div>
+
+
+
+
+
+<!-- JavaScript for Canvas + Cursor Trail -->
+  <script>
+    // Mouse-following stars
+    
+
+    // Tech-style animated background using canvas
+    const canvas = document.getElementById('tech-bg');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    const particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2 + 1;
+      }
+
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = '#8a2be2';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw particles
+      for (let p of particles) {
+        p.move();
+        p.draw();
+      }
+
+      // Connect nearby particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i];
+          const b = particles[j];
+          const dist = Math.hypot(a.x - b.x, a.y - b.y);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(255, 0, 255, 0.1)';
+            ctx.lineWidth = 1;
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+
+<script>
+  // Open modal with clicked image
+  document.addEventListener('DOMContentLoaded', function () {
+    const table = document.getElementById('bookTable');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+
+    table.addEventListener('click', function (e) {
+      const img = e.target.closest('img');
+      if (img) {
+        modalImg.src = img.src;
+        modal.classList.remove('hidden');
+      }
+    });
+  });
+
+  // Close modal
+  function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+  }
+</script>
+
+
+
+
+
+
+
+
+<!-- Script -->
+<script>
+  const books = [
+  {
+  id: 1,
+  title: "Start-End ",
+  author: "Panha Phosda",
+  year: "2025",
+  description: "Start-End...<br><br>In the darkness, there is a light waiting for you...<br><br>The woman in this picture is not a weak person, but a strong person who has overcome pain and disappointment with the strength of her heart.<br><br>This book is written for those who are starting their journey or are looking for a new direction.<br><br>Drawn from the real-life experiences of a woman... this collection of inspirational quotes is meant to empower you, help you rise again, and remind you:<br><strong>‘Start from where you are. Finish where you dream.’</strong><br><br>If you're searching for a meaningful life…<br>If you’ve lost your direction…<br>If you need something to lift your spirit…<br><br><strong>This book is for you.</strong><br><br>Life doesn’t have to start perfectly,<br>but it can end beautifully —<br><strong>if you don’t give up.</strong>",
+  cover: "/portfolio/kh/img/7 year old.png"
+},
+
+
+
+    {
+      id: 2,
+      title: "Options in the Misty Forest",
+      author: "Panha Phosda",
+      year: "2024",
+      description: "*In a world filled with mystery and danger...<br> A woman named Elara begins her journey. Elara is no ordinary woman. She has long, smooth black hair and bright red wings that make her look like a goddess. Her long black dress adds an air of mystery and makes many wonder:<br>– Who is she? And what is her purpose?<br>Her wings aren't meant for flying. They may be symbols of the past or emotions she can barely control.<br>– Are they signs of sin? Transformation? Or a powerful force awakening?<br>Elara must travel through a dark world full of dangers, facing forces from both heaven and hell. Along this journey, she must discover her identity, understand her duty, and make decisions that could determine the future of the world.<br>This story is a blend of struggle, survival, discovery, and the battle between light and darkness.<br>Elara is not only seeking her own truth — she might also become the one who changes history itself.",
+
+      cover: "/portfolio/kh/img/2.png"
+    },
+    {
+      id: 3,
+      title: "Us When? ",
+      author: "Panha Phosda",
+      year: "2024",
+      description: "The sunset is beautiful, isn't it? <br>When the sky and sea blend into shades of gold and red, a love story begins.<br>The book *'Us When?'* tells the story of a couple in love. <br>In the picture, you see them standing together, watching the sunset — it's the most beautiful moment. <br>– What will happen to their relationship?<br>– Are they in love, or just close friends?<br>– Will this sunset lead them to their destiny?<br>This book invites you to explore the emotions and story of this couple. It's a tale of love, longing, and the search for the perfect moment with someone you love. Read it to discover how their love unfolds beneath the warm and stunning sunset.",
+
+      cover: "/portfolio/kh/img/3.png"
+    },
+    {
+      id: 4,
+      title: "Pride and Prejudice",
+      author: "Jane Austen",
+      year: "1813",
+      description: "z",
+      cover: "https://covers.openlibrary.org/b/id/8231856-L.jpg"
+    }
+  ];
+
+  const bookRows = document.querySelectorAll('#bookTable tr');
+  const bookDetail = document.getElementById('bookDetail');
+  const bookTitle = document.getElementById('bookTitle');
+  const bookAuthor = document.getElementById('bookAuthor');
+  const bookYear = document.getElementById('bookYear');
+  const bookDescription = document.getElementById('bookDescription');
+  const bookCover = document.getElementById('bookCover');
+  const toggleDescription = document.getElementById('toggleDescription');
+
+  let fullDescription = '';
+  let isExpanded = false;
+
+  bookRows.forEach(row => {
+    row.addEventListener('click', () => {
+      const bookId = row.dataset.id;
+      const book = books.find(b => b.id == bookId);
+      if (book) {
+        bookTitle.textContent = book.title;
+        bookAuthor.textContent = `Author: ${book.author}`;
+        bookYear.textContent = `Year: ${book.year}`;
+        bookCover.src = book.cover;
+        bookCover.alt = book.title;
+
+       fullDescription = book.description.replace(/\n/g, '<br>');
+
+        isExpanded = false;
+
+        if (fullDescription.length > 120) {
+          bookDescription.innerHTML = fullDescription.slice(0, 120).replace(/\n/g, '<br>') + '...';
+          toggleDescription.textContent = 'View More';
+          toggleDescription.classList.remove('hidden');
+        } else {
+          bookDescription.innerHTML = fullDescription.replace(/\n/g, '<br>');
+          toggleDescription.classList.add('hidden');
+        }
+
+
+        bookDetail.classList.remove('hidden');
+        bookDetail.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  toggleDescription.addEventListener('click', () => {
+  if (isExpanded) {
+    bookDescription.innerHTML = fullDescription.slice(0, 120).replace(/\n/g, '<br>') + '...';
+    toggleDescription.textContent = 'View More';
+  } else {
+    bookDescription.innerHTML = fullDescription.replace(/\n/g, '<br>');
+    toggleDescription.textContent = 'View Less';
+  }
+  isExpanded = !isExpanded;
+});
+
+
+  
+</script>
+
+</body>
+</html>

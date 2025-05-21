@@ -1,0 +1,357 @@
+<!-- khmer -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phosda Book Library</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/portfolio/img/stars.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Battambang&display=swap" rel="stylesheet">
+
+</head>
+<body class="bg-black text-white min-h-screen p-6" style="font-family: 'Battambang', sans-serif;">
+<!-- Canvas Background -->
+  <canvas id="tech-bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+
+  <header class="text-center mb-10 ">
+    <!-- Language Toggle Button -->
+<div class="flex justify-end items-center mb-4 ">
+ <button onclick="window.location.href='/portfolio/Business-page/index.html'" 
+        class="text-sm  px-3 py-1 rounded  transition ml-2">
+  <img src="https://flagcdn.com/w40/us.png" alt="English" class="w-5 h-4 inline-block">
+</button>
+</div>
+
+    <h1 class="text-3xl sm:text-3xl py-4 font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent ">
+        
+        បណ្ណាល័យរបស់ខ្ញុំ</h1>
+  <p id="subheading" class="text-gray-400">សៀវភៅដែលខ្ញុំសរសេរ</p>
+
+    
+  </header>
+
+     <!-- Back Button -->
+<a href="/portfolio/index.html"
+   class="absolute top-4 left-4 flex items-center pt-2 text-gray-300 text-sm
+          transition-colors duration-300
+          hover:text-pink-500 group">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       class="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-translate-x-0.5
+              text-gray-300 group-hover:text-purple-500" 
+       fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+          d="M17 19l-7-7 7-7M11 19l-7-7 7-7" />
+  </svg>
+ ត្រឡប់
+</a>
+
+ <div class="overflow-x-auto mb-12 px-3">
+    <table class="w-full max-w-6xl mx-auto text-sm sm:text-base border border-gray-700 rounded-lg overflow-hidden shadow-lg">
+      <thead class>
+        <tr>
+          <th class="px-4 py-3 border-b border-gray-700 text-left">គម្រប</th>
+          <th class="px-4 py-3 border-b border-gray-700 text-left">ចំណងជើង</th>
+          <th class="px-4 py-3 border-b border-gray-700 text-left">អ្នកនិពន្ធ</th>
+          <th class="px-4 py-3 border-b border-gray-700 text-left">ឆ្នាំ</th>
+        </tr>
+      </thead>
+      <tbody id="bookTable" class="divide-y divide-gray-800">
+        <tr data-id="1" class="cursor-pointer  transition">
+          <td class="p-3"><img src="/portfolio/kh/img/7 year old.png" alt="The Great Gatsby" class="w-16 h-24 rounded object-cover" /></td>
+          <td class="p-3">ចាប់ផ្ដើម-បញ្ចប់</td>
+          <td class="p-3"> បញ្ញា ភ័ស្ដា</td>
+          <td class="p-3">២០២៥</td>
+        </tr>
+        <tr data-id="2" class="cursor-pointer  transition">
+          <td class="p-3"><img src="/portfolio/kh/img/2.png" alt="1984" class="w-16 h-24 rounded object-cover" /></td>
+          <td class="p-3">ជម្រើសក្នុងព្រៃអ័ព្ទ</td>
+          <td class="p-3">បញ្ញា ភ័ស្ដា</td>
+          <td class="p-3">២០២៤</td>
+        </tr>
+        <tr data-id="3" class="cursor-pointer  transition">
+          <td class="p-3"><img src="/portfolio/kh/img/3.png" alt="To Kill a Mockingbird" class="w-16 h-24 rounded object-cover" /></td>
+          <td class="p-3">នៅពេលណា? </td>
+          <td class="p-3">បញ្ញា ភ័ស្ដា </td>
+          <td class="p-3">២០២៤</td>
+        </tr>
+        <!-- <tr data-id="4" class="cursor-pointer  transition">
+          <td class="p-3"><img src="#" alt="Pride and Prejudice" class="w-16 h-24 rounded object-cover" /></td>
+          <td class="p-3">Pride and Prejudice</td>
+          <td class="p-3">Jane Austen</td>
+          <td class="p-3">1813</td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Book Detail Section -->
+  
+<div id="bookDetail" class="hidden  border border-gray-700 p-6 rounded-xl max-w-4xl mx-auto shadow-lg">
+  <div class="flex flex-col sm:flex-row gap-6 items-center">
+    <!-- Book Cover Image -->
+    <img id="bookCover" src="" alt="Book Cover" class="w-32 h-48 object-cover rounded shadow-md" />
+
+    <!-- Book Info -->
+    <div>
+      <h2 id="bookTitle" class="text-2xl font-semibold mb-2 text-"></h2>
+      <p id="bookAuthor" class="mb-1 text-gray-300"></p>
+      <p id="bookYear" class="mb-1 text-gray-400"></p>
+     <p id="bookDescription" class="mt-3 text-white leading-relaxed"></p>
+    <button id="toggleDescription" class="mt-2 text-sm text-gray-400 hover:underline focus:outline-none hidden">មើលច្រើនទៀត</button>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+ 
+<div>
+<div class="py-2 px-2">
+  <a href="https://t.me/Phosda8" target="_blank">
+    <button class="border border-purple-900 px-1 py-1 rounded-md hover:bg-gray-900 hover:text-white transition-colors duration-300 ease-in-out">
+   អានបន្ថែម
+    </button>
+  </a>
+  
+</div>
+
+<div>
+
+</div>
+<!-- Footer -->
+    <footer class="text-center text-sm mt-4 text-gray-400 ">
+      &copy; រក្សាសិទ្ធិគ្រប់យ៉ាងដោយ. បញ្ញា ភ័ស្ដា 
+    </footer>
+
+</div>
+
+ <!-- Image Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
+  <div class="relative">
+    <img id="modalImage" src="" alt="Book Cover" class="max-w-full max-h-[90vh] rounded-lg shadow-xl" />
+    <button onclick="closeModal()" class="absolute top-2 right-2 text-white text-3xl">&times;</button>
+  </div>
+</div>
+
+
+<!-- JavaScript for Canvas + Cursor Trail -->
+  <script>
+    // Mouse-following stars
+    
+
+    // Tech-style animated background using canvas
+    const canvas = document.getElementById('tech-bg');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    const particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2 + 1;
+      }
+
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = '#8a2be2';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw particles
+      for (let p of particles) {
+        p.move();
+        p.draw();
+      }
+
+      // Connect nearby particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i];
+          const b = particles[j];
+          const dist = Math.hypot(a.x - b.x, a.y - b.y);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(255, 0, 255, 0.1)';
+            ctx.lineWidth = 1;
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+<script>
+  // Open modal with clicked image
+  document.addEventListener('DOMContentLoaded', function () {
+    const table = document.getElementById('bookTable');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+
+    table.addEventListener('click', function (e) {
+      const img = e.target.closest('img');
+      if (img) {
+        modalImg.src = img.src;
+        modal.classList.remove('hidden');
+      }
+    });
+  });
+
+  // Close modal
+  function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Script -->
+<script>
+  const books = [
+  {
+    id: 1,
+    title: "ចាប់ផ្ដើម... និង បញ្ចប់ ",
+    author: "បញ្ញា ភ័ស្ដា",
+    year: "២០២៥",
+    description: "ចាប់ផ្ដើម...និង បញ្ចប់<br>  នៅក្នុងភាពងងឹតនៃជីវិត មានពន្លឺមួយកំពុងរង់ចាំអ្នក... <br> នារីក្នុងរូបភាពនេះ មិនមែនជាអ្នកខ្សោយទេ ប៉ុន្តែជាបុគ្គលដ៏រឹងមាំ ដែលបានឈានផុតពីការឈឺចាប់ និងការខកចិត្តដោយកម្លាំងក្នុងចិត្តរបស់នាង។ <br> សៀវភៅនេះ ត្រូវបានសរសេរឡើងសម្រាប់អ្នកដែលកំពុងតែចាប់ផ្ដើមដំណើររបស់ខ្លួន ឬក៏កំពុងស្វែងរកទិសដៅថ្មី។ <br> ដោយដកស្រង់ចេញពីខ្សែរជីវិតពិតរបស់មនុស្សស្រីម្នាក់...កម្រងពាក្យបំផុសគំនិត ដែលនាំឲ្យអ្នកមានកម្លាំងចិត្តក្នុងការលើកខ្លួនឯងឡើងវិញហើយធ្វើឲ្យអ្នកចងចាំថា៖​​​​​​​ <br> '​ចាប់ផ្ដើមពីកន្លែងដែលអ្នកនៅ។ បញ្ចប់នៅកន្លែងដែលអ្នកសុបិន។' <br> បើអ្នកកំពុងចង់រស់នៅក្នុងជីវិតដែលមានន័យ… បើអ្នកកំពុងបាត់បង់ទិសដៅ… បើអ្នកត្រូវការអ្វីមួយដើម្បីលើកទឹកចិត្ត… សៀវភៅនេះសម្រាប់អ្នក។ <br> ជីវិតមិនចាំបាច់ចាប់ផ្ដើមបានល្អ តែវាអាចបញ្ចប់បានយ៉ាងអស្ចារ្យ ប្រសិនបើអ្នកមិនបោះបង់។",
+    cover: "/portfolio/kh/img/7 year old.png"
+  },
+
+
+    {
+      id: 2,
+      title: "ជម្រើសក្នុងព្រៃអ័ព្ទ",
+      author: "បញ្ញា ភ័ស្ដា",
+      year: "២០២៤",
+      description: "*នៅក្នុងពិភពមួយដែលពោរពេញទៅដោយអាថ៌កំបាំង   និងគ្រោះថ្នាក់... <br>  ស្ត្រីម្នាក់ឈ្មោះ Elara បានចាប់ផ្តើមដំណើររបស់នាង។ Elara មិនមែនជាស្ត្រីធម្មតាឡើយ។នាងមានសក់វែងខ្មៅរលោង និងស្លាបពណ៌ក្រហមភ្លឺ ដែលធ្វើឲ្យនាងមើលទៅដូចជាទេវតាមួយ។ រ៉ូបខ្មៅវែងដែលនាងស្លៀក បន្ថែមភាពអាថ៌កំបាំង និងធ្វើឲ្យមនុស្សជាច្រើនចង់ដឹងថា <br> - តើនាងជានរណា? ហើយនាងមានគោលបំណងអ្វី?<br>ស្លាបនាងមិនមែនមានសម្រាប់ហើរទេ។ វាអាចជាសញ្ញានៃអតីតកាល ឬអារម្មណ៍ដែលនាងកំពុងស្ទើរមិនអាចគ្រប់គ្រងបាន។ <br>- តើវាជាសញ្ញានៃបាប?ការផ្លាស់ប្តូរ? ឬជាថាមពលខ្លាំងណាមួយកំពុងភ្ញាក់ឡើង?<br>Elara ត្រូវធ្វើដំណើរឆ្លងកាត់ពិភពងងឹត ពោរពេញដោយគ្រោះថ្នាក់ ដោយនាងត្រូវប្រឈមមុខនឹងកម្លាំងពីឋានសួគ៌ និងឋាននរក។ ក្នុងដំណើរនេះ នាងត្រូវស្វែងរកអត្តសញ្ញាណរបស់ខ្លួន យល់ពីអ្វីជាកាតព្វកិច្ច និងសម្រេចចិត្តអំពីអនាគតរបស់ពិភពលោក។<br>រឿងនេះគឺជាការផ្សំឡើងរវាងការតស៊ូ ការរស់រានមានជីវិត ការស្វែងរក និងការប្រយុទ្ធរវាងពន្លឺនិងភាពងងឹត។ <br>Elara មិនត្រឹមតែស្វែងរកសេចក្តីពិតរបស់ខ្លួនទេ ប៉ុន្តែអាចក្លាយជាមនុស្សដែលអាចផ្លាស់ប្តូរប្រវត្តិសាស្ត្របានផងដែរ។",
+      cover: "/portfolio/kh/img/2.png"
+    },
+    {
+      id: 3,
+      title: "នៅពេលណា? ",
+      author: "បញ្ញា ភ័ស្ដា",
+      year: "២០២៤",
+      description: "The sunset is beautiful, isn't it? <br>ថ្ងៃលិចស្អាតណាស់ តើមិនអញ្ចឹងទេ? <br> នៅពេលដែលផ្ទៃមេឃ និងសមុទ្រលាយគ្នាជាពណ៌មាស និងក្រហម រឿងស្នេហាមួយក៏ចាប់ផ្ដើម។<br>សៀវភៅ 'នៅពេលណា?' នេះគឺជារឿងមួយដែលនិយាយពីគូស្នេហ៍មួយគូ។ <br>នៅក្នុងរូបភាព អ្នកឃើញពួកគេឈរមើលថ្ងៃលិចជាមួយគ្នា វាជាពេលវេលាដ៏ស្រស់ស្អាតបំផុត។  <br> - តើទំនាក់ទំនងរបស់ពួកគេទៅជាយ៉ាងណា? <br> - តើពួកគេស្រឡាញ់គ្នា ឬគ្រាន់តែជាមិត្តល្អ? <br> - តើពន្លឺថ្ងៃលិចនេះនឹងនាំពួកគេទៅរកជោគវាសនាអ្វី?សៀវភៅនេះនឹងនាំអ្នកឱ្យស្វែងយល់ពីអារម្មណ៍ និងរឿងរ៉ាវរបស់គូស្នេហ៍មួយគូនេះ។ វាជាសៀវភៅអំពីស្នេហា ការនឹករលឹក និងការស្វែងរកពេលវេលាដ៏ល្អឥតខ្ចោះជាមួយមនុស្សដែលយើងស្រឡាញ់។ អានសៀវភៅនេះ ដើម្បីដឹងថាតើក្តីស្រឡាញ់របស់ពួកគេនឹងទៅជាយ៉ាងណា នៅក្រោមពន្លឺថ្ងៃលិចដ៏កក់ក្តៅ និងស្រស់ស្អាតនេះ។",
+      cover: "/portfolio/kh/img/3.png"
+    },
+    {
+      id: 4,
+      title: "Pride and Prejudice",
+      author: "Jane Austen",
+      year: "1813",
+      description: "z",
+      cover: "https://covers.openlibrary.org/b/id/8231856-L.jpg"
+    }
+  ];
+
+  const bookRows = document.querySelectorAll('#bookTable tr');
+  const bookDetail = document.getElementById('bookDetail');
+  const bookTitle = document.getElementById('bookTitle');
+  const bookAuthor = document.getElementById('bookAuthor');
+  const bookYear = document.getElementById('bookYear');
+  const bookDescription = document.getElementById('bookDescription');
+  const bookCover = document.getElementById('bookCover');
+  const toggleDescription = document.getElementById('toggleDescription');
+
+  let fullDescription = '';
+  let isExpanded = false;
+
+  bookRows.forEach(row => {
+    row.addEventListener('click', () => {
+      const bookId = row.dataset.id;
+      const book = books.find(b => b.id == bookId);
+      if (book) {
+        bookTitle.textContent = book.title;
+        bookAuthor.textContent = `អ្នកនិពន្ធ: ${book.author}`;
+        bookYear.textContent = `ឆ្នាំ: ${book.year}`;
+        bookCover.src = book.cover;
+        bookCover.alt = book.title;
+
+       fullDescription = book.description.replace(/\n/g, '<br>');
+
+        isExpanded = false;
+
+        if (fullDescription.length > 120) {
+          bookDescription.innerHTML = fullDescription.slice(0, 120).replace(/\n/g, '<br>') + '...';
+          toggleDescription.textContent = 'មើលច្រើនទៀត';
+          toggleDescription.classList.remove('hidden');
+        } else {
+          bookDescription.innerHTML = fullDescription.replace(/\n/g, '<br>');
+          toggleDescription.classList.add('hidden');
+        }
+
+
+        bookDetail.classList.remove('hidden');
+        bookDetail.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  toggleDescription.addEventListener('click', () => {
+  if (isExpanded) {
+    bookDescription.innerHTML = fullDescription.slice(0, 120).replace(/\n/g, '<br>') + '...';
+    toggleDescription.textContent = 'មើលច្រើនទៀត';
+  } else {
+    bookDescription.innerHTML = fullDescription.replace(/\n/g, '<br>');
+    toggleDescription.textContent = 'មើលតិច';
+  }
+  isExpanded = !isExpanded;
+});
+
+
+  
+</script>
+
+</body>
+</html>

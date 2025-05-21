@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/portfolio/img/stars.png" type="image/png" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+<style>
+  /* Magical Star Trail */
+    .star {
+      position: fixed;
+      background: radial-gradient(circle, #ff00ff, #8a2be2);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.9;
+      z-index: 50;
+      animation: sparkle 1s ease-out forwards;
+      box-shadow: 0 0 10px #ff00ffaa;
+    }
+
+    @keyframes sparkle {
+      from {
+        transform: scale(0.6) rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: scale(2.5) translateY(-20px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+</style>
+<body class="min-h-screen  flex flex-col items-center justify-start px-4 py-10 text-center font-sans">
+<canvas id="tech-bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+  <!-- Back Button -->
+<a href="/portfolio/index.html"
+   class="absolute top-4 left-4 flex items-center pt-2 text-gray-300 text-sm
+          transition-colors duration-300
+          hover:text-pink-500 group">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       class="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-translate-x-0.5
+              text-gray-300 group-hover:text-purple-500" 
+       fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+          d="M17 19l-7-7 7-7M11 19l-7-7 7-7" />
+  </svg>
+  Back
+</a>
+
+  <!-- Title and Subtitle -->
+  <h1 class="text-3xl font-bold text-2xl  font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-4">About Me</h1>
+  <p class="text-gray-400 text-s mb-10">Learn more about me</p>
+
+  <!-- Image Grid: always 2 columns -->
+  <div class="grid grid-cols-2 gap-6">
+
+    <!-- Card 1 -->
+    <div class="rounded-2xl overflow-hidden transform hover:scale-105 transition duration-300 shadow-lg"
+         data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+      <img src="/portfolio/about-me/img/skybar.jpg" alt="Sky Bar"
+           class="w-full max-w-xs h-48 object-cover rounded-2xl border border-black mx-auto">
+    </div>
+  
+    <!-- Card 2 -->
+    <div class="rounded-2xl overflow-hidden transform hover:scale-105 transition duration-300 shadow-lg"
+         data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+      <img src="/portfolio/about-me/img/q.jpg" alt="Kos Norea"
+           class="w-full max-w-xs h-48 object-cover rounded-2xl border border-black mx-auto">
+    </div>
+  
+    <!-- Card 3 -->
+    <div class="rounded-2xl overflow-hidden transform hover:scale-105 transition duration-300 shadow-lg"
+         data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+      <img src="/portfolio/about-me/img/1d82bceb21148c75b81de8a475255c48.jpg" alt="Kids"
+           class="w-full max-w-xs h-48 object-cover rounded-2xl border border-black mx-auto">
+    </div>
+  
+    <!-- Card 4 -->
+    <div class="rounded-2xl overflow-hidden transform hover:scale-105 transition duration-300 shadow-lg"
+         data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
+      <img src="/portfolio/about-me/img/angkor.jpg" alt="Lifestyle"
+           class="w-full max-w-xs h-48 object-cover rounded-2xl border border-black mx-auto">
+    </div>
+  
+  </div>
+<div>
+ 
+<!-- Skill tools -->
+    <div class="max-w-4xl mx-auto px-4 py-12 text-white text-center  text-center" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class=" text-3xl pt-12 font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-4">
+          Skills & Tools
+        </h2>
+        <p class="text-gray-400 text-lg mb-12">
+          I'm a passionate web developer focused on creating engaging and user-friendly web applications.
+        </p>
+      
+        <!-- SECTION COMPONENT -->
+        <div class="space-y-12 text-left max-w-4xl mx-auto ">
+        
+          <!-- Design Tools -->
+          <section data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">* Design Tools</h3>
+            <div class="flex flex-wrap gap-4">
+              <span class="skill">Figma</span>
+              <span class="skill">Adobe XD</span>
+              <span class="skill">Canva</span>
+               <span class="skill">Pisart</span>
+               <span class="skill">Adobe-Photoshop</span>
+
+            </div>
+          </section>
+      
+          <!-- Languages & Frameworks -->
+          <section data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">* Programming Languages & Frameworks</h3>
+            <div class="flex flex-wrap gap-4">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">React.JS</span>
+              <span class="skill">Tailwind</span>
+              <span class="skill">Bootstrap</span>
+               <span class="skill">MUI</span>
+            </div>
+          </section>
+      
+          <!-- DevOps & Hosting -->
+          <section data-aos="fade-up" data-aos-delay="300">
+            <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">* DevOps & Hosting</h3>
+            <div class="flex flex-wrap gap-4">
+              <span class="skill">Vercel</span>
+              <span class="skill">Netlify</span>
+              <span class="skill">GitHub</span>
+              <span class="skill">GitLab</span>
+            </div>
+          </section>
+      
+          <!-- Other Skills -->
+          <section data-aos="fade-up" data-aos-delay="400">
+            <h3 class="text-xl font-semibold mb-4 border-b border-gray-700 pb-2">* Other Skills</h3>
+            <div class="flex flex-wrap gap-4">
+              <span class="skill">English</span>
+              <span class="skill">Customer service</span>
+              <span class="skill">Design</span>
+              <span class="skill">Video-Editor</span>
+              <span class="skill">Agile</span>
+              <span class="skill">Word & Power-Point & Excel</span>
+              <span class="skill">Communication</span>
+               <span class="skill">Problem solving </span>
+            </div>
+          </section>
+      
+        </div>
+      </div>
+      
+<!-- Education -->
+      <section class="max-w-4xl mx-auto px-4 py-12">
+        <h1 
+          class="text-3xl font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-10 text-center"
+          data-aos="fade-up"
+          data-aos-duration="900"
+        >
+          Education
+        </h1>
+      
+        <div class="grid md:grid-cols-2 gap-10">
+      
+          <!-- School 1 -->
+          <div class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+            <img src="/portfolio/about-me/img/a&B.png" alt="School 1 Logo" class="w-16 h-16 rounded-full object-cover border border-gray-700 shadow-md">
+            <div>
+              <h2 class="text-xl font-semibold">Above and Beyond School </h2>
+              <p class="text-gray-400 text-sm">Software Development </p>
+            </div>
+          </div>
+      
+          <!-- School 2 -->
+          <div class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+            <img src="/portfolio/img/biu.png" class="w-16 h-16  object-cover  shadow-md">
+            <div>
+              <h2 class="text-xl font-semibold">BELTEI International University</h2>
+              <p class="text-gray-400 text-sm">Faculty of Business Adminstration</p>
+            </div>
+          </div>
+      
+        </div>
+      </section>
+
+
+
+<!-- My Recommend -->
+<section class="max-w-4xl mx-auto px-4 py-12 text-white text-center" data-aos="fade-up" data-aos-duration="1000">
+
+        <h1 
+        class="text-3xl font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-10 text-center"
+        data-aos="fade-up"
+        data-aos-duration="900"
+      >
+        My Recommend
+      </h1>
+      <p class="text-gray-400 text-lg  py-2 ">Click to view </p>
+      
+        <!-- FAQ Item -->
+        <div class="space-y-4 " 
+        data-aos="fade-up"
+        data-aos-duration="800" >
+            <div class="border-b border-gray-700 rounded-md p-4 cursor-pointer transition hover:white "
+            data-aos="fade-up"
+        data-aos-duration="800"  onclick="toggleFaq(this)">
+                <h2 class="text-base sm:text-lg font-medium">Online Courses & Skill Platforms &#8595;</h2>
+                <p class="text-sm text-gray-400 mt-2 hidden">
+                    One of the best ways to grow is by learning new skills consistently. Online learning platforms give you access to expert-level knowledge from anywhere.
+            
+                    <br><br>
+                    📚 <a href="https://www.coursera.org/" target="_blank" class="text-blue-400 hover:text-blue-600">Coursera</a> – Offers courses from top universities and companies in leadership, personal development, and business.  
+                    <br>
+                    🎨 <a href="https://www.skillshare.com/" target="_blank" class="text-blue-400 hover:text-blue-600">Skillshare</a> – Great for creative skills like design, productivity, freelancing, and time management.  
+                    <br>
+                    💻 <a href="https://www.udemy.com/" target="_blank" class="text-blue-400 hover:text-blue-600">Udemy</a> – Massive library of affordable courses on everything from communication to coding to entrepreneurship.  
+                    <br>
+                    🌍 <a href="https://www.linkedin.com/learning/" target="_blank" class="text-blue-400 hover:text-blue-600">LinkedIn Learning</a> – Perfect for professional growth, with bite-sized courses on workplace skills and soft skills.  
+                    <br><br>
+                    
+                    <blockquote class="italic text-gray-400">“Learning never exhausts the mind — it fuels it.”</blockquote>
+                </p>
+            </div>
+            
+      
+          <div class="border-b border-gray-700 rounded-md p-4 cursor-pointer  transition" data-aos="fade-up"
+          data-aos-duration="800" onclick="toggleFaq(this)">
+            <h2 class="text-base sm:text-lg font-medium">Motivation Channel &#8595;</h2>
+            <p class="text-sm text-gray-400 mt-2 hidden">
+              Khmer:
+              <a href="https://www.youtube.com/@RYLCambodia" target="_blank" class="text-blue-400 hover:underline">RYL Cambodia</a>,
+              <a href="https://www.youtube.com/@SengGechly" target="_blank" class="text-blue-400 hover:underline">Seng Gechly</a>,
+              <a href="https://www.youtube.com/@ReanThort" target="_blank" class="text-blue-400 hover:underline">Rean Thort</a>.
+              <br>
+              English:
+              <a href="https://www.youtube.com/user/TEDxTalks" target="_blank" class="text-blue-400 hover:underline">TEDx Talk</a>.
+              <a href="https://www.youtube.com/@Motiversity" target="_blank" class="text-blue-400 hover:underline">Motiversity</a>,
+              <a href="https://www.youtube.com/@BenLionelScott" target="_blank" class="text-blue-400 hover:underline">Ben Lionel Scott</a>.
+            </p>
+            <blockquote class="italic text-gray-400">“The best way to predict the future is to create it.”</blockquote>
+
+                
+          </div>
+          
+      
+          <div class="border-b border-gray-700 rounded-md p-4 cursor-pointer  transition"data-aos="fade-up"
+          data-aos-duration="800"  onclick="toggleFaq(this)">
+            <h2 class="text-base sm:text-lg font-medium">Journaling & Goal Setting &#8595;</h2>
+            <p class="text-sm text-gray-400 mt-2 hidden">
+                Staying focused in life starts with clarity. One of the simplest but most powerful habits is keeping a daily journal.
+        
+                ✍️ Daily Journaling helps you reflect on your thoughts, feelings, and lessons each day.
+                
+                🎯 Goal Setting allows you to track progress and stay accountable to what truly matters.
+                
+                📈 Use tools like a physical notebook, or apps like:
+                <br><br>
+                 <a href="https://www.notion.so/" target="_blank" class="text-blue-400 hover:text-blue-600">Notion</a> – A powerful tool for journaling, note-taking, and habit tracking.
+                <br>
+                 <a href="https://keep.google.com/" target="_blank" class="text-blue-400 hover:text-blue-600">Google Keep</a> – A simple app to quickly jot down ideas, goals, and reminders.
+                <br>
+                 <a href="https://dayoneapp.com/" target="_blank" class="text-blue-400 hover:text-blue-600">Day One</a> – A beautifully designed app for journaling and tracking life’s moments.
+                <br><br>
+                ✅ Tip:Try writing down 3 goals in the morning and reflecting on them at night to build self-awareness and discipline.
+                
+                <br><br>
+                <blockquote class="italic text-gray-400">“Goals are dreams with deadlines. Journaling turns those dreams into daily action.”</blockquote>
+            </p>
+        </div>
+        
+      
+          <div class="border-b border-gray-700 rounded-md p-4 cursor-pointer transition"data-aos="fade-up"
+          data-aos-duration="800"  onclick="toggleFaq(this)">
+            <h2 class="text-base sm:text-lg font-medium">Books I Have Read &#8595;</h2>
+            <p class="text-sm text-gray-400 mt-2 hidden leading-relaxed space-y-1">
+              <a href="https://www.google.com/search?q=Atomic+Habits+by+James+Clear" target="_blank" class="text-blue-400 hover:underline">Atomic Habits</a> – Build habits that stick.<br>
+              <a href="https://www.google.com/search?q=The+7+Habits+of+Highly+Effective+People+by+Stephen+R.+Covey" target="_blank" class="text-blue-400 hover:underline">The 7 Habits of Highly Effective People</a> – Principles of personal effectiveness.<br>
+              <a href="https://www.google.com/search?q=Can't+Hurt+Me+by+David+Goggins" target="_blank" class="text-blue-400 hover:underline">Can't Hurt Me</a> – Build mental toughness.<br>
+              <a href="https://www.google.com/search?q=Think+and+Grow+Rich+by+Napoleon+Hill" target="_blank" class="text-blue-400 hover:underline">Think and Grow Rich</a> – Master your mindset for success.<br>
+              <a href="https://www.google.com/search?q=Mindset+by+Carol+Dweck" target="_blank" class="text-blue-400 hover:underline">Mindset</a> – Embrace a growth mindset.<br>
+              <a href="https://www.google.com/search?q=The+Power+of+Now+by+Eckhart+Tolle" target="_blank" class="text-blue-400 hover:underline">The Power of Now</a> – Live in the present moment.<br>
+              <a href="https://www.google.com/search?q=Deep+Work+by+Cal+Newport" target="_blank" class="text-blue-400 hover:underline">Deep Work</a> – Focus deeply in a distracted world.<br>
+              <a href="https://www.google.com/search?q=The+Subtle+Art+of+Not+Giving+a+F*ck+by+Mark+Manson" target="_blank" class="text-blue-400 hover:underline">The Subtle Art of Not Giving a F*ck</a> – Live by your values.<br>
+              <a href="https://www.google.com/search?q=Daring+Greatly+by+Brené+Brown" target="_blank" class="text-blue-400 hover:underline">Daring Greatly</a> – Power of vulnerability.<br>
+              <a href="https://www.google.com/search?q=How+to+Win+Friends+and+Influence+People+by+Dale+Carnegie" target="_blank" class="text-blue-400 hover:underline">How to Win Friends and Influence People</a> – Improve your relationships.
+            </p>
+            <blockquote class="italic text-gray-400 mt-2">“A reader lives a thousand lives before he dies. The man who never reads lives only one.”
+                — George R.R. Martin”</blockquote>
+          </div>
+          
+          <div class="border-b border-gray-700 rounded-md p-4 cursor-pointer transition"data-aos="fade-up"
+          data-aos-duration="800"  onclick="toggleFaq(this)">
+            <h2 class="text-base sm:text-lg font-medium">Diary Noted &#8595;</h2>
+            <p class="text-sm text-gray-400 mt-2 hidden">
+              Here are 5 free tools students can use to take notes and stay organized:
+          
+              📝 <a href="https://keep.google.com/" target="_blank" class="text-blue-400 hover:underline">Google Keep</a> – Simple and clean for quick note-taking and reminders.
+          
+              📘 <a href="https://www.onenote.com/" target="_blank" class="text-blue-400 hover:underline">Microsoft OneNote</a> – Powerful digital notebook with organized sections.
+          
+              ✍️ <a href="https://simplenote.com/" target="_blank" class="text-blue-400 hover:underline">Simplenote</a> – Lightweight and distraction-free note-taking across devices.
+          
+              📒 <a href="https://www.zoho.com/notebook/" target="_blank" class="text-blue-400 hover:underline">Zoho Notebook</a> – Visually appealing notebooks with multimedia support.
+          
+              🧠 <a href="https://www.notion.so/" target="_blank" class="text-blue-400 hover:underline">Notion</a> – All-in-one workspace for notes, tasks, and knowledge management.
+            </p>
+            <blockquote class="italic text-gray-400 mt-2">“Great notes make for great understanding.”</blockquote>
+          </div>
+          
+          
+      
+
+
+
+
+          
+        </div>
+      </section>
+   
+<!-- Connecte -->
+    <div class="max-w-3xl mx-auto text-center ">
+        <h1 
+        class="text-3xl font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-10 text-center"
+        data-aos-duration="900"
+      >
+      Connect 
+      </h1>
+      <div class="flex justify-center space-x-6">
+        
+        <!-- Instagram -->
+            <a href="https://www.instagram.com/alis_ventro" target="_blank" class="hover:text-pink-400 transition-colors duration-300">
+                <i class="fab fa-instagram text-2xl"
+                data-aos="fade-right"
+                data-aos-duration="900"></i>
+            </a>
+  
+        <!-- Facebook -->
+        <a href="https://web.facebook.com/profile.php?id=100047716693547" target="_blank" class="hover:text-pink-500 transition-colors duration-300">
+          <i class="fab fa-facebook-f text-2xl"
+            data-aos="fade-right"
+            data-aos-duration="800" >
+          </i>
+        </a>
+        <!-- Email -->
+        <a href="mailto:panhaphosda@gmail.com" class="hover:text-pink-400 transition-colors duration-300">
+            <i class="fas fa-envelope text-2xl"
+               data-aos="fade-right"
+               data-aos-duration="700"></i>
+          </a>
+          
+          
+        <!-- Telegram -->
+        <a href="https://t.me/phosda8" target="_blank" class="hover:text-pink-400 transition-colors duration-300">
+          <i class="fab fa-telegram-plane text-2xl"
+          data-aos="fade-right"
+          data-aos-duration="800" ></i>
+        </a>
+        <!-- GitHub -->
+        <a href="https://github.com/PHOSDA" target="_blank" class="hover:text-pink-400 transition-colors duration-300">
+          <i class="fab fa-github text-2xl" 
+           data-aos="fade-right"
+          data-aos-duration="850" ></i>
+        </a>
+        <a href="https://www.linkedin.com/in/panha-phosda-414526334/" target="_blank" class="hover:text-pink-400 transition-colors duration-300">
+            <i class="fab fa-linkedin text-2xl" data-aos="fade-right" data-aos-duration="800"></i>
+          </a>
+          <!-- TikTok -->
+        <a href="https://www.tiktok.com/@letmealone69" target="_blank" class="hover:text-pink-400 transition-colors duration-300">
+            <i class="fab fa-tiktok text-2xl"
+            data-aos="fade-right"
+            data-aos-duration="800"></i>
+        </a>
+  
+       
+      </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  
+  
+
+
+
+
+
+
+
+      <script>
+        function toggleFaq(element) {
+          const paragraph = element.querySelector('p');
+          paragraph.classList.toggle('hidden');
+        }
+      </script>
+      
+
+    
+      <!-- Tailwind custom class for skill pill -->
+      <style>
+        .skill {
+          @apply inline-block bg-gray-800 text-white text-sm px-5 py-2 rounded-full border border-gray-700 hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-600 hover:border-transparent transition-all duration-300;
+        }
+      </style>
+
+      <footer class="text-center text-sm mt-12 text-gray-400">
+        &copy; Panha-Phosda Portfolio. All rights reserved.
+      </footer>
+
+
+
+</body>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script>
+    function toggleMoreText() {
+      const moreText = document.getElementById('moreText');
+      moreText.classList.toggle('hidden');
+    }
+  </script>
+  <script>
+    function toggleFaq(element) {
+      const paragraph = element.querySelector('p');
+      if (paragraph) {
+        paragraph.classList.toggle('hidden');
+      }
+    }
+  </script>
+  
+<!-- JavaScript for Canvas + Cursor Trail -->
+  <script>
+    // Mouse-following stars
+    document.addEventListener('mousemove', (e) => {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 8 + 5;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${e.clientX}px`;
+      star.style.top = `${e.clientY}px`;
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 1000);
+    });
+
+    // Tech-style animated background using canvas
+    const canvas = document.getElementById('tech-bg');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    const particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2 + 1;
+      }
+
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = '#8a2be2';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw particles
+      for (let p of particles) {
+        p.move();
+        p.draw();
+      }
+
+      // Connect nearby particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i];
+          const b = particles[j];
+          const dist = Math.hypot(a.x - b.x, a.y - b.y);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(255, 0, 255, 0.1)';
+            ctx.lineWidth = 1;
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+  
+  
+
+  
+</html>
+

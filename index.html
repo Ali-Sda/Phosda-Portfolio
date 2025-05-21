@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phosda Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="icon" href="/portfolio/img/stars.png" type="image/png" />
+
+    <!-- Font Awesome (MUST be in <head> or before this section) -->
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  integrity="sha512-Bx5S1AmgYlH/4cqlZkxDJYOqOZgSLHNO0BQ6GqCq2EPnmE5TzRYOjgJ4aK6vhPexOaa1YAxq7qdu/9Sr+6mFPA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+
+    <!-- AOS Library CSS -->
+     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to bottom right , #000000, #000000);
+        color: #ffffff;
+      }
+      .highlight {
+        color: #8a2581;
+      }
+      @layer utilities {
+        @keyframes fade-in-up {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      
+        .animate-fade-in-up {
+          animation: fade-in-up 0.6s ease-out both;
+        }
+      
+        .delay-200 {
+          animation-delay: 0.10s;
+        }
+      
+        .delay-400 {
+          animation-delay: 0.12s;
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .animate-fadeInUp {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+        
+      
+
+    </style>
+    <style>
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.5s ease-out;
+
+}
+
+
+/* Magical Star Trail */
+    .star {
+      position: fixed;
+      background: radial-gradient(circle, #ff00ff, #8a2be2);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.9;
+      z-index: 50;
+      animation: sparkle 1s ease-out forwards;
+      box-shadow: 0 0 10px #ff00ffaa;
+    }
+
+    @keyframes sparkle {
+      from {
+        transform: scale(0.6) rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: scale(2.5) translateY(-20px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+
+
+
+
+
+
+
+</style>
+
+
+  </head>
+  <body class="px-4 py-4 ">
+      <!-- Canvas Background -->
+  <canvas id="tech-bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+    <!-- Responsive Navbar -->
+   <nav class="border-border-zinc-900" id="navbar">
+  <div class="flex items-center justify-between flex-wrap p-1.5 rounded-lg shadow-[0_30px_12px_0_rgba(0,0,0,0.25)] transition-all duration-500 ease-in-out transform">
+    
+    <!-- Logo -->
+    <h2 class="text-2xl font-bold text-center" data-aos="zoom-on" data-aos-delay="100">
+  Panha 
+  <span class="highlight font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent relative inline-block">
+    PHOSDA
+    <span class="block h-[2px] bg-purple-500 mt-1 mx-auto w-2/3"></span>
+  </span>
+</h2>
+
+
+    <div class="ml-auto mr-3">
+      <a href="/portfolio/general/index.html">
+        <img src="/portfolio/img/stars.png" alt="Panha Phosda Logo" class="h-8" />
+      </a>
+    </div>
+
+    <!-- Menu -->
+    <div id="menu" class="w-full hidden lg:flex flex-col lg:flex-row lg:items-center lg:w-auto mt-4 lg:mt-0 justify-between text-white">
+      <ul class="hidden lg:flex flex-row text-white text-lg space-x-6">
+        <li><a data-en="About" data-kh="អំពីខ្ញុំ" href="#about" class="hover:text-pink-200 hover:scale-110 transition-all duration-300">About</a></li>
+        <li><a data-en="Work Experience" data-kh="បទពិសោធន៍ការងារ" href="#experience" class="hover:text-pink-200 hover:scale-110 transition-all duration-300">Work Experience</a></li>
+        <li><a data-en="Projects" data-kh="គម្រោង" href="#projects" class="hover:text-pink-200 hover:scale-110 transition-all duration-300">Projects</a></li>
+        <li><a data-en="Education" data-kh="ការសិក្សា" href="#education" class="hover:text-pink-200 hover:scale-110 transition-all duration-300">Education</a></li>
+        <li><a data-en="My Skills" data-kh="ជំនាញរបស់ខ្ញុំ" href="#skills" class="hover:text-pink-200 hover:scale-110 transition-all duration-300">My Skills</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+      
+
+
+      
+
+      
+  
+
+    <!-- About Me -->
+    <section id="about" class="mb-10 px-4" data-aos="fade-up">
+  
+    
+      <!-- Profile + Text Container -->
+      <div class="flex flex-col md:flex-row items-center md:items-start justify-center gap-6 md:gap-10 max-w-6xl mx-auto px-4 py-8 md:py-12">
+        
+        <!-- Profile Image -->
+        <div 
+          class="w-46 h-48 md:w-64 md:h-64 overflow-hidden "
+          data-aos="zoom-in"
+        >
+        <!-- shadow-[0_10px_100px_rgba(255,255,255,0.20)] -->
+        <img
+            src="/portfolio/img/anime01.jpg"
+            alt="Profile"
+            class="w-full h-full object-cover"
+          />
+          <!-- <img
+            src="/portfolio/img/photo_2025-05-18_21-34-07.jpg"
+            alt="Profile"
+            class="w-full h-full object-cover"
+          /> -->
+        </div>
+    
+        <!-- About Text -->
+    <div class="text-center md:text-left max-w-xl" data-aos="fade-left">
+  <p class="text-xl md:text-2xl py-4 font-semibold leading-snug">
+    Hi! I’m Phosda &nbsp;
+  </p>
+
+  <p class="text-xl md:text-2xl font-semibold mt-2">
+    <span id="typed-title" class="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"></span>
+    <span class="animate-blink">|</span>
+  </p>
+
+
+  <p class="mt-4 text-sm md:text-base text-gray-400">
+    I specialize in building engaging user experiences for web and mobile platforms.
+  </p>
+
+  <!-- Responsive About Me Button (inside content flow) -->
+  <div class="mt-6 flex justify-center md:justify-start">
+    <a href="/portfolio/about-me/"
+      class="group inline-flex items-center 
+              px-4 py-2 text-xs sm:text-base 
+              font-semibold text-white 
+              bg-gradient-to-r from-pink-500 to-purple-500 
+              rounded-full shadow-lg 
+              hover:from-pink-600 hover:to-purple-600 
+              transition duration-300">
+      About <span class="ml-1">Me</span>
+      <svg xmlns="http://www.w3.org/2000/svg" 
+       class="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" 
+       fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+  </svg>
+      
+    </a>
+  </div>
+</div>
+
+
+
+      
+      <style>
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+    
+        .animate-blink {
+          display: inline-block;
+          animation: blink 1s step-start infinite;
+        }
+    
+        #typed-title {
+          display: inline-block;
+          white-space: nowrap;
+          width: auto;
+        }
+    
+        @media (max-width: 768px) {
+          .text-xl { font-size: 1.25rem; }
+          .text-3xl { font-size: 1.5rem; }
+          .text-3xl { font-size: 1.875rem; }
+          .text-sm { font-size: 0.875rem; }
+          .text-pink-600 {
+            display: block;
+            margin-top: 15px;
+          }
+        }
+      </style>
+    
+      <script>
+        const titles = [
+          "UX UI Designer",
+          "Software Developer"
+         
+        ];
+    
+        const el = document.getElementById("typed-title");
+        let titleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+    
+        function typeLoop() {
+          const currentTitle = titles[titleIndex];
+    
+          if (isDeleting) {
+            el.textContent = currentTitle.substring(0, charIndex--);
+            if (charIndex < 0) {
+              isDeleting = false;
+              titleIndex = (titleIndex + 1) % titles.length;
+              setTimeout(typeLoop, 300);
+              return;
+            }
+          } else {
+            el.textContent = currentTitle.substring(0, charIndex++);
+            if (charIndex > currentTitle.length) {
+              isDeleting = true;
+              setTimeout(typeLoop, 1500);
+              return;
+            }
+          }
+    
+          setTimeout(typeLoop, isDeleting ? 50 : 100);
+        }
+    
+        typeLoop();
+      </script>
+    </section>
+    
+      
+
+  
+    <!-- Work Experience -->
+    <section id="experience" class="mb-16 px-4" >
+        <h2 class="text-2xl font-bold mb-8 text-center"data-aos="zoom-in" data-aos-delay="100">
+          Work <span class="highlight font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Experience</span>
+        </h2>
+      
+        <div class="space-y-10 max-w-4xl mx-auto"data-aos="zoom-in" data-aos-delay="100">
+      
+          <!-- Experience 1 -->
+          <div class="flex items-start gap-4 animate-fade-in-up "data-aos="fade-up" data-aos-delay="100">
+            <img src="/portfolio/img/agteach.png" alt="AGTEACH Logo" class="w-12 h-12 object-contain mt-1 rounded-full" />
+            <div>
+              <h3 class="text-xl font-semibold font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Frontend Developer & UX UI Designer</h3>
+              <p class="text-gray-300 mt-1">
+                Developed a website name <strong>AGTEACH</strong> A platform for farmers and users to learn farming through video courses and buy supplies.
+              </p>
+            </div>
+          </div>
+      
+          <!-- Experience 2 -->
+          <div class="flex items-start gap-4 animate-fade-in-up delay-200">
+            <img src="/portfolio/img/spring-logo.png" alt="Spring Internship Logo" class="w-12 h-12 object-contain mt-1 rounded-full" />
+            <div>
+              <h3 class="text-xl font-semibold font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Digital Marketing</h3>
+              <p class="text-gray-300 mt-1">
+                Participated in the <strong>Spring Internship Program</strong> as a Video Editor and Content Creator.
+              </p>
+            </div>
+          </div>
+      
+          <!-- Experience 3 -->
+          <div class="flex items-start gap-4 animate-fade-in-up delay-400">
+            <img src="/portfolio/img/ed.avif" alt="Online Teaching Logo" class="w-12 h-12 object-contain mt-1 rounded-full" />
+            <div>
+              <h3 class="text-xl font-semibold font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">English Teacher</h3>
+              <p class="text-gray-300 mt-1">
+            Experienced English teacher dedicated to teaching students through engaging lessons tailored to their individual learning needs.
+              </p>
+            </div>
+          </div>
+      
+        </div>
+      </section>
+      
+  
+  
+
+    <!-- Projects -->
+<section class="mb-16 px-4">
+ <h2 class="text-2xl font-bold mb-6 text-center text-white">
+  <span class="inline-block whitespace-nowrap">
+    <span class="text-white">My</span> <span class="font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Projects</span>
+  </span>
+</h2>
+
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+              
+          <!-- Card 1 -->
+        
+      <div class="bg-black rounded-xl shadow-lg overflow-hidden border border-zinc-900" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="relative h-40">
+              <img src="/portfolio/img/samsung.png" alt="UNIX Commands" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gray-900 bg-opacity-70 flex flex-col justify-center items-center text-white px-4">
+                <h3 class="text-xl font-bold text-center ">SAMSUNG CLONE PROJECTS</h3>
+                <span class="text-xs">clone project</span>
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="text-lg font-bold font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-2">Samsung Project</h4>
+              <p class="text-white text-sm mb-4 leading-snug">
+                A responsive and modern website I designed to enhance user engagement.
+                I bring creativity and precision to every project and would love to contribute to your team.
+              </p>
+              <a href="https://samsungalphabeez.netlify.app/index.html" target="_blank" rel="noopener noreferrer">
+                <button class="bg-pink-900 text-white text-sm px-4 py-2 rounded hover:font-extrabold border border-zinc-900 bg-gradient-to-r from-pink-500 to-purple-500 border bg-clip-text text-transparent transition">
+                  View
+                </button>
+              </a>
+            </div>
+          </div>
+      
+          <!-- Card 2 -->
+          
+        <div class="bg-black rounded-xl shadow-lg overflow-hidden border border-zinc-900" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="relative h-40">
+              <img src="/portfolio/img/agteach-web.png" alt="Samsung Clone" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gray-900  bg-opacity-70 flex flex-col justify-center items-center text-white px-4">
+                <h3 class="text-xl font-bold text-center">Agteach Website</h3>
+                <p class="italic text-sm">Web Project</p>
+                <span class="text-xs">Frontend & Backend</span>
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="text-lg font-bold font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-2">Agteach Platform</h4>
+              <p class="text-white text-sm mb-4 leading-snug">
+                We're your one-stop platform for learning farming through video courses and buying the supplies you need.
+                Think of us as your farming teacher and supply store, all in one place.
+              </p>
+              <a href="https://alphabeez.anbschool.org/" target="_blank" rel="noopener noreferrer">
+                <button class="bg-pink-900 border border-zinc-900 text-white text-sm px-4 py-2 rounded hover:font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 border bg-clip-text text-transparent transition">
+                  View
+                </button>
+              </a>
+            </div>
+          </div>
+      
+          <!-- Card 3 -->
+         
+        <div class="bg-black rounded-xl shadow-lg overflow-hidden border border-zinc-900" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="relative h-40">
+              <img src="/portfolio/img/todo-list.png" alt="To Do App" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gray-900  bg-opacity-70 flex flex-col justify-center items-center text-white px-4">
+                <h3 class="text-xl font-bold text-center">To Do App</h3>
+                <p class="italic text-sm">Task Manager</p>
+                <span class="text-xs">JavaScript</span>
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="text-lg font-bold text-lg font-bold font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-2 mb-2">To Do List Project</h4>
+              <p class="text-white text-sm mb-4 leading-snug">
+                Create daily task tracker using JS to manage and complete goals.
+              </p>
+              <a href="https://dadiary-note.netlify.app/" target="_blank" rel="noopener noreferrer">
+                <button class=" border border-zinc-900 text-sm px-4 py-2 rounded hover:font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 border bg-clip-text text-transparent transition text-white text-sm px-4 py-2 rounded hover:bg-purple-800 transition">
+                  View
+                </button>
+              </a>
+              
+            </div>
+          </div>
+      
+        </div>
+      </section>
+      
+      
+      
+
+    <!-- UX UI & Flow Planning -->
+  <section class="mb-16 px-4">
+        <h2 class="text-2xl font-bold mb-6 text-lg font-bold font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-2">UX/UI & <span class="text-white">Flow Planning</span></h2>
+      
+        <div class="space-y-10">
+          <!-- Card 1 -->
+          <div class="flex flex-col md:flex-row items-start gap-6  pb-8 border-b border-gray-900"data-aos="fade-up" data-aos-delay="100">
+            <img src="/portfolio/img/samsung-logo.png"alt="AGTeach Project" class="w-full md:w-60 rounded">
+            <div>
+              <h3 class="text-xl font-semibold text-lg font-bold font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-2">SAMSUNG PROJECTS</h3>
+              <p class="text-sm text-gray-500 mb-4">Samung clone project using html,CSS, JS ,Tailwind, MUI </p>
+              <a href="https://plastic-banjo-fc1.notion.site/Team-project-Note-86fa1bbe65984ff7b40918bc68cf0576" class="text-sm px-4 py-2 rounded hover:font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 border bg-clip-text text-transparent transition text-white text-sm px-4 py-2 rounded hover:bg-purple-800 border border-zinc-800">View More</a>
+            </div>
+          </div>
+      
+
+<!-- data-aos="fade-up" data-aos-delay="100" -->
+
+          <!-- Card 2 -->
+          <div class="flex flex-col md:flex-row items-start gap-6 border-b border-gray-900 pb-8"data-aos="fade-up" data-aos-delay="100">
+            <img src="/portfolio/img/agteach-logo.png"alt="AGTeach Project" class="w-full md:w-60 rounded">
+            <div>
+              <h3 class="text-xl font-semibold text-lg font-bold font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-2">AGTEACH CAPSTONE PROJECTS</h3>
+              <p class="text-sm text-gray-500 mb-4">Capstone projects for AGTEACH initiative, showcasing educational tools. React-JS.</p>
+              <a href="https://www.figma.com/design/P1DiQYO4CGBJ1j6OyvAMLw/AgTeach?node-id=1-1795&t=ga0sP6Y71FqMjqsK-0" class="text-sm px-4 py-2 rounded hover:font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 border bg-clip-text text-transparent transition text-white text-sm px-4 py-2 rounded hover:bg-purple-800 border border-zinc-900 transition">View More</a>
+            </div>
+          </div>
+      
+          <!-- Card 3 -->
+          <div class="flex flex-col md:flex-row items-start gap-6 "data-aos="fade-up" data-aos-delay="100">
+            <img src="/portfolio/img/todo.png" alt="To Do App" class="w-full md:w-60 rounded">
+            <div>
+              <h3 class="text-xl font-semibold text-lg font-bold font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-2">TO DO LIST</h3>
+              <p class="text-sm text-gray-500 mb-4">Task manager built with a modern UI&UX for diary-style note taking. HTML, JS, Tailwind. </p>
+              <a href="https://plastic-banjo-fc1.notion.site/3rd-Mission-Personal-Project-Diary-Note-0ed2ddcf29194f87a5343125cb93318a" class="text-sm px-4 py-2 rounded hover:font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 border bg-clip-text text-transparent transition text-white text-sm px-4 py-2 rounded border border-zinc-900 hover:bg-purple-800 transition">View More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    <!-- Education -->
+    <!-- <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6">My <span class="highlight">Education</span></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div class="flex items-center space-x-4">
+          <img src="/portfolio/img/biu.png" alt="School 1 Logo" class="w-30 h-20" />
+          <p class="text-lg">BELTEI INTERNATIONAL UNIVERSITY</p>
+        </div>
+       
+      </div>
+    </section> -->
+<div class="max-w-6xl mx-auto px-4 py-10">
+  <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
+    
+    <!-- Quotes + Image slider Section -->
+    <div class="md:w-1/2 w-full flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+      
+      <!-- Quotes Slider -->
+      <div class="overflow-hidden relative min-h-[140px] flex items-center justify-center w-full">
+        <div id="quoteSlider" class="flex transition-transform duration-700 ease-in-out w-full">
+          <!-- Each quote -->
+          <div class="min-w-full px-2 md:px-4 text-lg leading-relaxed text-center md:text-left max-w-md mx-auto">
+            Life doesn't last forever, so we should make the most of our time. Focus on what truly matters before it's too late.
+          </div>
+          <div class="min-w-full px-2 md:px-4 text-lg leading-relaxed text-center md:text-left max-w-md mx-auto">
+            Time is what we want most, but what we use worst. Use your moments wisely before they slip away.
+          </div>
+          <div class="min-w-full px-2 md:px-4 text-lg leading-relaxed text-center md:text-left max-w-md mx-auto">
+            The key is not spending time, but investing it in things that matter. – Stephen R. Covey
+          </div>
+          <div class="min-w-full px-2 md:px-4 text-lg leading-relaxed text-center md:text-left max-w-md mx-auto">
+            Lost time is never found again. Value every second you have. – Benjamin Franklin
+          </div>
+          <div class="min-w-full px-2 md:px-4 text-lg leading-relaxed text-center md:text-left max-w-md mx-auto">
+            Time flies over us, but leaves its shadow behind. – Nathaniel Hawthorne
+          </div>
+          <div class="min-w-full px-2 md:px-4 text-lg leading-relaxed text-center md:text-left max-w-md mx-auto">
+            Your time is limited, so don’t waste it living someone else’s life. – Steve Jobs
+          </div>
+        </div>
+      </div>
+      
+      <!-- Image Slider: visible on md+ only -->
+      <div class=" flex md:flex gap-4 mt-6 max-w-md w-full justify-center">
+        <img src="/portfolio/img/14e35c5767bc8fcf40845936413a838b.jpg" alt="Image 1" class="rounded-lg shadow-md object-cover w-20 h-20 cursor-pointer" />
+        <img src="/portfolio/img/c5a8521d16a75ed0ded0ddfabe8911a2.jpg" alt="Image 2" class="rounded-lg shadow-md object-cover w-20 h-20 cursor-pointer" />
+        <img src="/portfolio/img//093d2cfc19371df937817930112f3db2.jpg" alt="Image 3" class="rounded-lg shadow-md object-cover w-20 h-20 cursor-pointer" />
+        <img src="/portfolio/img/photo_2025-05-19_17-01-46.jpg" alt="Image 4" class="rounded-lg shadow-md object-cover w-20 h-20 cursor-pointer" />
+        
+      </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="md:w-1/2 w-full flex justify-center md:justify-end">
+      <video autoplay muted loop playsinline class="w-[90%] md:w-[360px] rounded-xl shadow-xl">
+        <source src="/portfolio/img/time.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- JavaScript for Canvas + Cursor Trail -->
+  <script>
+    // Mouse-following stars
+    document.addEventListener('mousemove', (e) => {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 8 + 5;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${e.clientX}px`;
+      star.style.top = `${e.clientY}px`;
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 1000);
+    });
+
+    // Tech-style animated background using canvas
+    const canvas = document.getElementById('tech-bg');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    const particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2 + 1;
+      }
+
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = '#8a2be2';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw particles
+      for (let p of particles) {
+        p.move();
+        p.draw();
+      }
+
+      // Connect nearby particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i];
+          const b = particles[j];
+          const dist = Math.hypot(a.x - b.x, a.y - b.y);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(255, 0, 255, 0.1)';
+            ctx.lineWidth = 1;
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="text-center text-sm mt-1 text-gray-400 ">
+      &copy; Ms. Panha-Phosda Portfolio. All rights reserved.
+    </footer>
+    
+
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script>
+  const slider = document.getElementById("quoteSlider");
+  const totalQuotes = slider.children.length;
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % totalQuotes;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 4000); // Change every 4 seconds
+</script>
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script>const translatable = document.querySelectorAll('[data-en]');</script>
+
+
+</html>

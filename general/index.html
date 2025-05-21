@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phosda Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/portfolio/img/stars.png" type="image/png" />
+  <style>
+    .puzzle-piece {
+      background-image: url('/portfolio/img/ai2.jpg'); /* Replace with your image */
+      background-size: 300% 300%;
+    }
+
+    .puzzle-glow {
+      box-shadow: 0 0 40px 20px rgba(168, 85, 247, 0.8); /* Purple glow */
+      transition: box-shadow 0.4s ease-in-out;
+    }
+
+/* Magical Star Trail */
+    .star {
+      position: fixed;
+      background: radial-gradient(circle, #ff00ff, #8a2be2);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.9;
+      z-index: 50;
+      animation: sparkle 1s ease-out forwards;
+      box-shadow: 0 0 10px #ff00ffaa;
+    }
+
+    @keyframes sparkle {
+      from {
+        transform: scale(0.6) rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: scale(2.5) translateY(-20px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+
+
+
+
+  </style>
+</head>
+<body class="bg-black flex flex-col items-center justify-center text-white min-h-screen overflow-hidden px-10">
+
+      <!-- Canvas Background -->
+  <canvas id="tech-bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+  <h1 id="heading" class="text-xl sm:text-2xl font-bold mb-10 text-center">Prepare the puzzle to Unlock</h1>
+
+  <!-- Remaining Puzzle Piece -->
+  <div id="pieces" class="flex flex-wrap mb-6 justify-center"></div>
+
+  <!-- Board -->
+  <div id="board" class="grid grid-cols-3 "></div>
+
+  <!-- New Page Content -->
+  <div id="newPage" class="hidden mt-10 text-center">
+    <h1 id="typingTitle" class="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"></h1>
+    <p id="typingSubtitle" class="mt-4 text-lg text-gray-300"></p>
+  </div>
+
+  <script>
+    const totalRows = 3;
+    const totalCols = 3;
+    const board = document.getElementById("board");
+    const piecesContainer = document.getElementById("pieces");
+    const heading = document.getElementById("heading");
+    const newPage = document.getElementById("newPage");
+
+    const positions = [];
+    for (let r = 0; r < totalRows; r++) {
+      for (let c = 0; c < totalCols; c++) {
+        positions.push({ row: r, col: c });
+      }
+    }
+
+    const missingIndex = 8; // last piece
+    let selectedPiece = null;
+
+    // Create board with dropzones and pieces except last
+    positions.forEach((pos, i) => {
+      const zone = document.createElement("div");
+      zone.className = "dropzone w-24 h-24 border-2 border-dashed border-gray-700 rounded";
+      zone.dataset.correct = `${pos.row}-${pos.col}`;
+
+      if (i !== missingIndex) {
+        const piece = document.createElement("div");
+        piece.className = "puzzle-piece w-24 h-24 border-2 border-black rounded";
+        piece.style.backgroundPosition = `${-pos.col * 100}% ${-pos.row * 100}%`;
+        piece.dataset.correct = `${pos.row}-${pos.col}`;
+        zone.appendChild(piece);
+      }
+      board.appendChild(zone);
+    });
+
+    // Create final piece to place
+    const finalPos = positions[missingIndex];
+    const finalPiece = document.createElement("div");
+    finalPiece.className = "puzzle-piece w-24 h-24 border-2 border-purple-500 rounded cursor-pointer";
+    finalPiece.style.backgroundPosition = `${-finalPos.col * 100}% ${-finalPos.row * 100}%`;
+    finalPiece.setAttribute("draggable", "true");
+    finalPiece.dataset.correct = `${finalPos.row}-${finalPos.col}`;
+    finalPiece.id = "final-piece";
+    piecesContainer.appendChild(finalPiece);
+
+    // Drag & click handlers
+    finalPiece.addEventListener("dragstart", e => {
+      e.dataTransfer.setData("text/plain", e.target.id);
+    });
+
+    finalPiece.addEventListener("click", () => {
+      selectedPiece = finalPiece;
+      finalPiece.classList.add("ring-4", "ring-white");
+    });
+
+    document.querySelectorAll(".dropzone").forEach(zone => {
+      zone.addEventListener("dragover", e => e.preventDefault());
+
+      zone.addEventListener("drop", e => {
+        e.preventDefault();
+        const id = e.dataTransfer.getData("text/plain");
+        const piece = document.getElementById(id);
+        placeFinalPiece(zone, piece);
+      });
+
+      zone.addEventListener("click", () => {
+        if (selectedPiece) {
+          placeFinalPiece(zone, selectedPiece);
+        }
+      });
+    });
+
+    function placeFinalPiece(zone, piece) {
+      if (!zone.hasChildNodes() && zone.dataset.correct === piece.dataset.correct) {
+        zone.appendChild(piece);
+        piece.setAttribute("draggable", false);
+        piece.classList.remove("ring-4", "ring-white");
+        triggerSuccess();
+      }
+    }
+
+    function triggerSuccess() {
+      // Add purple glow to board
+      board.classList.add("puzzle-glow");
+
+      // Remove puzzle elements and heading quickly but keep glow for 1s
+      setTimeout(() => {
+        heading.remove();
+        board.remove();
+        piecesContainer.remove();
+
+        // Show new page container with empty text, ready for typing
+        newPage.classList.remove("hidden");
+
+        // Start typing
+        startTyping();
+      }, 400);
+    }
+
+    function startTyping() {
+      const titleText = "Want to know more ?";
+      const subtitleText = "Welcome to my ....";
+      const typingTitle = document.getElementById("typingTitle");
+      const typingSubtitle = document.getElementById("typingSubtitle");
+
+      typingTitle.textContent = "";
+      typingSubtitle.textContent = "";
+
+      let i = 0;
+      let j = 0;
+
+      function typeTitle() {
+        if (i < titleText.length) {
+          typingTitle.textContent += titleText.charAt(i);
+          i++;
+          setTimeout(typeTitle, 80);
+        } else {
+          setTimeout(typeSubtitle, 400); // small delay before typing subtitle
+        }
+      }
+
+      function typeSubtitle() {
+        if (j < subtitleText.length) {
+          typingSubtitle.textContent += subtitleText.charAt(j);
+          j++;
+          setTimeout(typeSubtitle, 80);
+        } else {
+          // Wait 2 seconds then redirect
+          setTimeout(() => {
+            window.location.href = "/portfolio/business/index.html"; // Change URL here
+          }, 2000);
+        }
+      }
+
+      typeTitle();
+    }
+
+
+
+    
+  </script>
+<!-- JavaScript for Canvas + Cursor Trail -->
+  <script>
+    // Mouse-following stars
+    document.addEventListener('mousemove', (e) => {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 8 + 5;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${e.clientX}px`;
+      star.style.top = `${e.clientY}px`;
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 1000);
+    });
+
+    // Tech-style animated background using canvas
+    const canvas = document.getElementById('tech-bg');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    const particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2 + 1;
+      }
+
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = '#8a2be2';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw particles
+      for (let p of particles) {
+        p.move();
+        p.draw();
+      }
+
+      // Connect nearby particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i];
+          const b = particles[j];
+          const dist = Math.hypot(a.x - b.x, a.y - b.y);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(255, 0, 255, 0.1)';
+            ctx.lineWidth = 1;
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
+
+
+
+
+
